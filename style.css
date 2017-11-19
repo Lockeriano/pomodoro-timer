@@ -1,0 +1,24 @@
+body {
+  margin: 0 auto;
+  text-align: center;
+  font-size: 62.5%;
+}
+
+#container {
+  height: 200px;
+}
+
+.timer {
+  font-size: 7.2em;
+  color: #212020;
+}
+
+button {
+  width: 100px;
+  height: 40px;
+  background: #D46A6A;
+  color: #FFFFFF;
+  border: 0;
+  cursor: pointer;
+  margin: 1em
+}
