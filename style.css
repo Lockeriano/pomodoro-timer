@@ -11,6 +11,7 @@ body {
 #timerContainer {
   font-size: 7.2em;
   color: #212020;
+  margin: 100px 0;
 }
 
 button {
