@@ -1,7 +1,7 @@
-var count = 5;
+var count = 1500;
 var isStoped = false;
 var isBreak = true;
-var i = 1;
+var i = 0;
 var startBtn = document.getElementById('start-btn');
 var stopBtn = document.getElementById('stop-btn');
 
@@ -17,16 +17,16 @@ function timerStart(){
       count = count - 1;
     }
     if (count === -1 && isBreak) {
-      count = 3;
+      count = 300;
       isBreak = false;
       i++;
       console.log(i)
       if (i % 3 === 0) {
-        count = 12;
+        count = 1200;
       }
       return;
     } else if (count === -1 && !isBreak) {
-      count = 5;
+      count = 1500;
       isBreak = true;
     }
     isStoped = false;
