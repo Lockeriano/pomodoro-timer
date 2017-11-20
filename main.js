@@ -1,6 +1,7 @@
 var count = 1500,
     breakTime = 300,
     longBreakTime = 1200,
+    isRunning = 0,
     isStoped = false,
     isBreak = true,
     isLongBreak = 0,
@@ -9,12 +10,13 @@ var count = 1500,
     stopBtn = document.getElementById('stop-btn'),
     resetBtn = document.getElementById('reset-btn');
 
-stopBtn.addEventListener('click', stopCounter);
 startBtn.addEventListener('click', startCounter);
+stopBtn.addEventListener('click', stopCounter);
 resetBtn.addEventListener('click', resetCounter);
 
 
 function startCounter() {
+  checkIfRunning();
   var interval = setInterval(function timer() {
     if (isStoped) {
       return;
@@ -60,5 +62,14 @@ function resetCounter() {
     isReset = true;
   } else {
     isReset = false;
+  }
+}
+
+function checkIfRunning() {
+  isRunning++;
+  if (isRunning > 1) {
+    clearInterval(interval);
+  } else {
+    return
   }
 }
