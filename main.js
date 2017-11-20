@@ -4,17 +4,25 @@ var count = 1500,
     isStoped = false,
     isBreak = true,
     isLongBreak = 0,
+    isReset = false,
     startBtn = document.getElementById('start-btn'),
-    stopBtn = document.getElementById('stop-btn');
+    stopBtn = document.getElementById('stop-btn'),
+    resetBtn = document.getElementById('reset-btn');
 
-stopBtn.addEventListener('click', changeFlag);
-startBtn.addEventListener('click', startCounting);
+stopBtn.addEventListener('click', stopCounter);
+startBtn.addEventListener('click', startCounter);
+resetBtn.addEventListener('click', resetCounter);
 
 
-function startCounting() {
+function startCounter() {
   var interval = setInterval(function timer() {
     if (isStoped) {
       return;
+    } else if (isReset) {
+      clearInterval(interval);
+      count = 1500;
+      isLongBreak = 0;
+      isBreak = false;
     } else {
       count = count - 1;
     }
@@ -30,6 +38,7 @@ function startCounting() {
       isBreak = true;
     }
     isStoped = false;
+    isReset = false;
     var seconds = count % 60;
     var minutes = Math.floor(count / 60);
     minutes %= 60;
@@ -38,10 +47,18 @@ function startCounting() {
   }, 1000);
 }
 
-function changeFlag() {
+function stopCounter() {
   if (!isStoped){
     isStoped = true;
   } else {
     isStoped = false;
+  }
+}
+
+function resetCounter() {
+  if (!isReset) {
+    isReset = true;
+  } else {
+    isReset = false;
   }
 }
