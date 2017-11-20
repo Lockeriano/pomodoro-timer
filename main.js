@@ -1,31 +1,31 @@
-var count = 1500;
-var isStoped = false;
-var isBreak = true;
-var i = 0;
-var startBtn = document.getElementById('start-btn');
-var stopBtn = document.getElementById('stop-btn');
+var count = 1500,
+    breakTime = 300,
+    longBreakTime = 1200,
+    isStoped = false,
+    isBreak = true,
+    isLongBreak = 0,
+    startBtn = document.getElementById('start-btn'),
+    stopBtn = document.getElementById('stop-btn');
 
 stopBtn.addEventListener('click', changeFlag);
-startBtn.addEventListener('click', timerStart);
+startBtn.addEventListener('click', startCounting);
 
 
-function timerStart(){
+function startCounting() {
   var interval = setInterval(function timer() {
     if (isStoped) {
       return;
     } else {
       count = count - 1;
     }
-    if (count === -1 && isBreak) {
-      count = 300;
+    if (count == -1 && isBreak) {
+      count = breakTime;
       isBreak = false;
-      i++;
-      console.log(i)
-      if (i % 3 === 0) {
-        count = 1200;
+      isLongBreak++;
+      if (isLongBreak % 3 === 0) {
+        count = longBreakTime;
       }
-      return;
-    } else if (count === -1 && !isBreak) {
+    } else if (count == -1 && !isBreak) {
       count = 1500;
       isBreak = true;
     }
