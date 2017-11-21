@@ -7,7 +7,7 @@ body {
 #timerContainer {
   font-size: 7.2em;
   color: #212020;
-  margin: 50px 0;
+  margin: 30px 0;
 }
 
 button {
@@ -24,11 +24,20 @@ button {
   border-radius: 50%;
   height: 70px;
 }
+button:focus {
+  outline: 0;
+}
+
+button:hover {
+  background: #FFFFFF;
+  color: #212020;
+  transition: 0.3s;
+}
 
 .history-box {
   width: 400px;
   font-size: 1.4em;
-  margin: 50px auto;
+  margin: 40px auto;
 }
 
 .info-box {
@@ -49,7 +58,7 @@ button {
 }
 
 .info-container {
-  text-align: left
+  text-align: left;
 }
 
 #info .info-box {
@@ -67,4 +76,14 @@ button {
 
 #info:hover .info-box {
     visibility: visible;
+}
+
+#sound {
+  display: inline-block;
+  border: 1px solid #212020;
+  color: #212020;
+  background: #F8F8F8;
+  width: 70px;
+  height: 70px;
+  cursor: default;
 }
