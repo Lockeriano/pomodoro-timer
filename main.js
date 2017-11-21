@@ -1,4 +1,4 @@
-var count = 1500,
+var count = 15,
     breakTime = 300,
     longBreakTime = 1200,
     isRunning = 0,
@@ -21,11 +21,6 @@ function startCounter() {
     if (isStopped) {
       isRunning = 0;
       clearInterval(interval);
-    } else if (isReset) {
-      clearInterval(interval);
-      count = 1500;
-      isLongBreak = 0;
-      isBreak = false;
     } else {
       count = count - 1;
     }
@@ -41,10 +36,10 @@ function startCounter() {
       isBreak = true;
     }
     isStopped = false;
-    isReset = false;
-    var seconds = count % 60;
+    var seconds = ('0' + count % 60).slice(-2);
     var minutes = Math.floor(count / 60);
     minutes %= 60;
+    minutes = ('0' + minutes).slice(-2);
 
     document.getElementById("timerContainer").innerHTML = minutes + ":" + seconds;
   }, 1000);
@@ -60,9 +55,7 @@ function stopCounter() {
 
 function resetCounter() {
   if (!isReset) {
-    isReset = true;
-  } else {
-    isReset = false;
+    location.reload();
   }
 }
 

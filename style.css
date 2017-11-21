@@ -4,24 +4,29 @@ body {
   font-size: 62.5%;
 }
 
-#container {
-  height: 200px;
-}
-
 #timerContainer {
   font-size: 7.2em;
   color: #212020;
-  margin: 100px 0;
+  margin: 50px 0;
 }
 
 button {
-  width: 100px;
+  font-family: "Open Sans";
+  font-size: 1.8em;
+  width: 70px;
   height: 40px;
   background: #D46A6A;
   color: #FFFFFF;
   border: 0;
   cursor: pointer;
-  margin: 1em
+  margin: 1em;
+  border: 1px solid #212020;
+  border-radius: 50%;
+  height: 70px;
+}
+button:hover {
+  background: #D46A4A;
+  transition: 0.3s;
 }
 
 .info-box {
