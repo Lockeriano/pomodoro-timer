@@ -1,4 +1,4 @@
-var count = 15,
+var count = 1500,
     breakTime = 300,
     longBreakTime = 1200,
     isRunning = 0,
@@ -6,8 +6,10 @@ var count = 15,
     isBreak = true,
     isLongBreak = 0,
     isReset = false,
+    alarm = new Audio('alarm.mp3'),
     startBtn = document.getElementById('start-btn'),
     stopBtn = document.getElementById('stop-btn'),
+    infoBtn = document.getElementById('info-btn'),
     resetBtn = document.getElementById('reset-btn');
 
 startBtn.addEventListener('click', startCounter);
@@ -34,6 +36,8 @@ function startCounter() {
     } else if (count == -1 && !isBreak) {
       count = 1500;
       isBreak = true;
+    } else if (count == 5) {
+      alarm.play();
     }
     isStopped = false;
     var seconds = ('0' + count % 60).slice(-2);

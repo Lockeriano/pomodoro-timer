@@ -24,13 +24,47 @@ button {
   border-radius: 50%;
   height: 70px;
 }
-button:hover {
-  background: #D46A4A;
-  transition: 0.3s;
+
+.history-box {
+  width: 400px;
+  font-size: 1.4em;
+  margin: 50px auto;
 }
 
 .info-box {
-  width: 400px;
-  font-size: 1.6em;
-  margin: 50px auto;
+  width: 600px;
+  font-size: 1.8em;
+  margin: 0;
+}
+
+#info {
+  position: relative;
+  display: inline-block;
+  border: 1px solid #212020;
+  color: #212020;
+  background: #F8F8F8;
+  width: 40px;
+  height: 40px;
+  cursor: default;
+}
+
+.info-container {
+  text-align: left
+}
+
+#info .info-box {
+    visibility: hidden;
+    width: 600px;
+    background-color: #212020;
+    color: #FFFFFF;
+    text-align: center;
+    padding: 5px 0;
+    border-radius: 6px;
+    font-size: 1.2rem;
+    position: absolute;
+    z-index: 1;
+}
+
+#info:hover .info-box {
+    visibility: visible;
 }
