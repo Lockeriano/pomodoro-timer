@@ -18,25 +18,25 @@ resetBtn.addEventListener('click', resetCounter);
 
 
 function startCounter() {
-  checkIfRunning();
-  var interval = setInterval(function timer() {
+  stopCounterIfRunning();
+  var interval = setInterval(function () {
     if (isStopped) {
       isRunning = 0;
       clearInterval(interval);
     } else {
       count = count - 1;
     }
-    if (count == -1 && isBreak) {
+    if (count === -1 && isBreak) {
       count = breakTime;
       isBreak = false;
       isLongBreak++;
       if (isLongBreak % 3 === 0) {
         count = longBreakTime;
       }
-    } else if (count == -1 && !isBreak) {
+    } else if (count === -1 && !isBreak) {
       count = 1500;
       isBreak = true;
-    } else if (count == 5) {
+    } else if (count === 5) {
       alarm.play();
     }
     isStopped = false;
@@ -50,11 +50,7 @@ function startCounter() {
 }
 
 function stopCounter() {
-  if (!isStopped){
-    isStopped = true;
-  } else {
-    isStopped = false;
-  }
+  isStopped = (!isStopped);
 }
 
 function resetCounter() {
@@ -63,11 +59,9 @@ function resetCounter() {
   }
 }
 
-function checkIfRunning() {
+function stopCounterIfRunning() {
   isRunning++;
   if (isRunning > 1) {
     clearInterval(interval);
-  } else {
-    return
   }
 }
